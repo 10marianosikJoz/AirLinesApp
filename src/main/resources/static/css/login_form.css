@@ -1,0 +1,153 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700&display=swap');
+
+
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 2px;
+
+}
+body {
+    height: 100vh;
+    background-image: url("/images/4.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+
+}
+.glass {
+    height: 430px;
+    width: 440px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 14px;
+    backdrop-filter: blur(5px);
+    background: radial-gradient(at 50% 0%,rgba(0,0,0,0),rgba(255,255,255,0.3));
+    box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.3s ease-in-out;
+
+
+}
+.glass:hover {
+    transform: scale(1.05);
+    backdrop-filter: blur(9px);
+    background: radial-gradient(at 50% 0%,rgba(0,0,0,0),rgba(255,255,255,0.7));
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.5);
+}
+
+.glassfields {
+    display: block;
+    text-align: center;
+}
+/*.glassfields input {*/
+/*    !*display: block;*!*/
+/*    height: 25px;*/
+/*    border-radius: 5px;*/
+/*    border: 1px solid rgba(255,255,255,0.4);*/
+/*    margin-top: 10px;*/
+/*    top:40px*/
+/*}*/
+
+.glassfields .form-group {
+    width: 100%;
+    position: relative;
+}
+
+.glassfields .form-group input {
+    height: 35px;
+    outline: none;
+    font-size: 15px;
+    border-style: none;
+    margin-top: 30px;
+    margin-left: 130px;
+    background-color: #fff;
+    border-radius: 10px;
+    bottom: 50px;
+    width: 230px;
+    text-align: center;
+}
+.glassfields .form-group{
+    top: 5px;
+    width: 150px;
+}
+/*.glassfields .form-group label {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    pointer-events: none;
+    font-weight: bold;
+    top: 15px;
+    margin-top: 20px;
+
+
+}*/
+.button{
+    text-align: center;
+    margin-top: 100px;
+
+}
+
+.btn_login {
+    height: 50px;
+    width: 175px;
+    background: lightseagreen;
+    border:0px;
+    color:#fff;
+    box-shadow: 0 0 1px #ccc;
+    -webkit-transition-duration: 0.2s;
+    -webkit-transition-timing-function: linear;
+    box-shadow:0px 0 0 #31708f  inset;
+
+}
+
+.btn_login:hover{
+    box-shadow:0 0 0 25px #31708f  inset;
+    -webkit-transform: scale(1);
+}
+.error_messages {
+    text-align: center;
+}
+
+.new_user {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.new_user a {
+    text-decoration: none;
+    margin: 2px;
+}
+.remember_me {
+    margin-top: 15px;
+}
+.forgot_password a {
+    text-decoration: none;
+}
+.input-group-addon {
+    margin-left: 370px;
+    margin-top: -25px;
+
+}
+.form-group img {
+    width: 45px;
+    height: 45px;
+    margin-top: -95px;
+}
+.user_icon {
+    margin-top: -15px;
+}
+
+.password_icon {
+    margin-top: -15px;
+}
+
+.password_icon  img{
+    width: 45px;
+    height: 45px;
+    margin-top: -95px;
+}
+
+

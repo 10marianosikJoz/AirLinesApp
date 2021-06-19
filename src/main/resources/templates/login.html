@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml"  lang="">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/login_form.css}">
+    <script src= https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/b9bdbd120a.js"></script>
+
+
+
+</head>
+<body>
+
+
+
+<div class="glass">
+    <div class="glassfields">
+            <form th:action="@{/login}" method="post">
+
+                <div class="error_messages">
+
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">Invalid username or password or user is blocked!
+                    </div>
+                </div>
+
+                <div th:if="${param.logout}">
+                    <div class="alert alert-info" >You have been logged out!
+                    </div>
+                </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" name="username"
+                          required autofocus="autofocus"  maxlength="25">
+                    <div class="user_icon">
+                    <img src="/images/user.png" alt="">
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="input-group" id="show_hide_password">
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" name="password"
+                           required  autofocus="autofocus" minlength="8" maxlength="15">
+                    <div class="password_icon">
+                        <img src="/images/padlock.png" alt="">
+                    </div>
+                    <div class="input-group-addon">
+                    <a href=""><i class="fa fa-eye-slash" aria-hidden="true"></i></a>
+                </div>
+
+                </div>
+                    </div>
+
+
+                <div class="button">
+                    <button type="submit" class="btn_login" >Sign in</button>
+
+                </div>
+                <div class="remember_me">
+                    <input name="filterElements" class="form-check-input" type="checkbox">
+                    <span>Remember Me</span>
+                </div>
+                <div class="forgot_password">
+                    <a href="/" th:href="@{forgotPassword}">Forgot Password?</a>
+                </div>
+            </form>
+
+            <div class="new_user">
+                <span>New user?<a href="/" th:href="@{registration}">Register here</a></span>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/show_hide_password.js"></script>
+</html>
