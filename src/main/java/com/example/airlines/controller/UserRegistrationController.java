@@ -1,22 +1,13 @@
 package com.example.airlines.controller;
 
-import com.example.airlines.beans.rest_template.RestTemplateBean;
 import com.example.airlines.dto.UserDTO;
 import com.example.airlines.mapper.UserMapper;
 import com.example.airlines.model.User;
-import com.example.airlines.recaptcha.ReCaptchaResponse;
 import com.example.airlines.repository.UserRepository;
 import com.example.airlines.service.CaptchaService;
 import com.example.airlines.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;

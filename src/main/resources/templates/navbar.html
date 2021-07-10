@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+<header>
+    <div class="bars">&#11166;</div>
+    <div class="logo">
+        <h1>Asdsd</h1>
+    </div>
+    <ul id="navbar">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li class="drop-one">
+            <a href="#">Services <span>&#11167;</span></a>
+            <div class="menu-one">
+                <ul>
+                    <li><h4>Our company</h4></li>
+                    <li><img src="images/padlock.png" alt=""></li>
+                </ul>
+                <ul>
+                    <li><h4>Design</h4></li>
+                    <
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+                <ul>
+                    <li><h4>Skills</h4></li>
+                    <
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+                <ul>
+                    <li><h4>News</h4></li>
+                    <
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Home</a></li>
+        <li class="drop-two">
+            <a href="#">Home <span>&#11167;</span></a>
+            <ul class="menu-two">
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Facebook</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div sec:authorize="!isAuthenticated()" class="header_cart" style="color: white; margin: 5px;">
+        <a href="/login" style="color: white; text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                 class="bi bi-person-circle" viewBox="0 0 16 16" style="color: white; margin: 5px;">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+
+            <span>Log in</span>
+        </a>
+        <span class="sepator ng-star-inserted">/</span>
+        <a href="/registration" style="color: white; text-decoration: none;">
+            <span>Register</span>
+        </a>
+    </div>
+
+    <div sec:authorize="isAuthenticated()" class="header_cart" style="color: white; margin: 5px;">
+        <a href="/userPanel" style="color: white; text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                 class="bi bi-person-circle" viewBox="0 0 16 16" style="color: white; margin: 5px;">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+            <span th:text="${#authentication.name}"></span>
+        </a>
+
+
+        <a th:href="@{logout}" style="color: white; text-decoration: none;">
+            <span>Logout</span>
+        </a>
+    </div>
+</header>
+<script src="js/navbar.js"></script>
+</body>
+</html>

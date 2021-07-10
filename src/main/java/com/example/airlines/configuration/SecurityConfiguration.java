@@ -1,6 +1,7 @@
 package com.example.airlines.configuration;
 
 import com.example.airlines.beans.encoder.BCryptEncoderBean;
+import com.example.airlines.beans.token.PersistentTokenBean;
 import com.example.airlines.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +28,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private BCryptEncoderBean encoder;
 
+    @Autowired
+    private PersistentTokenBean tokenBean;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
@@ -46,6 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/privileges").hasRole("ADMIN")
                 .antMatchers("/index").hasRole("USER")
                 .antMatchers("/products").hasRole("DATAADMIN")
+                .and().rememberMe().tokenRepository(tokenBean.persistentTokenRepository())
                 .and()
                 .httpBasic();
 
@@ -69,5 +74,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?logout")
                 .permitAll();
     }
+
 }
 

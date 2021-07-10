@@ -10,7 +10,7 @@
     <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/b9bdbd120a.js"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
 
 </head>
@@ -20,24 +20,25 @@
 
 <div class="glass">
     <div class="glassfields">
-            <form th:action="@{/login}" method="post">
+            <form th:action="@{/login}" method="post" onsubmit="return validateForm()"
+                  id="form" class="row g-3 needs-validation" novalidate>
 
-                <div class="error_messages">
+                <div class="messages">
 
                 <div th:if="${param.error}">
-                    <div class="alert alert-danger">Invalid username or password or user is blocked!
+                    <div class="login_failed">Invalid username or password or user is blocked!
                     </div>
                 </div>
 
                 <div th:if="${param.logout}">
-                    <div class="alert alert-info" >You have been logged out!
+                    <div class="logout_message" >You have been logged out!
                     </div>
                 </div>
                 </div>
-
+            <div class="main_content">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="username" name="username"
-                          required autofocus="autofocus"  maxlength="25">
+                    <input type="email" class="form-control" id="username" name="username"
+                          required  maxlength="40">
                     <div class="user_icon">
                     <img src="/images/user.png" alt="">
                     </div>
@@ -50,7 +51,8 @@
                 <div class="input-group" id="show_hide_password">
                 <div class="form-group">
                     <input type="password" class="form-control" id="password" name="password"
-                           required  autofocus="autofocus" minlength="8" maxlength="15">
+                           required  minlength="8" maxlength="15">
+                    <div class="capslock_message"></div>
                     <div class="password_icon">
                         <img src="/images/padlock.png" alt="">
                     </div>
@@ -67,19 +69,23 @@
 
                 </div>
                 <div class="remember_me">
-                    <input name="filterElements" class="form-check-input" type="checkbox">
+                    <input name="remember-me" class="form-check-input" type="checkbox" id="remember">
                     <span>Remember Me</span>
                 </div>
                 <div class="forgot_password">
                     <a href="/" th:href="@{forgotPassword}">Forgot Password?</a>
                 </div>
+            </div>
             </form>
 
             <div class="new_user">
                 <span>New user?<a href="/" th:href="@{registration}">Register here</a></span>
             </div>
+
         </div>
     </div>
 </body>
+<script src="js/registration_val_form.js"></script>
 <script src="js/show_hide_password.js"></script>
+<script src="js/caps_lock_detector.js"></script>
 </html>

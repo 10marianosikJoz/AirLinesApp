@@ -12,6 +12,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
@@ -46,9 +47,37 @@ public class UserService implements UserDetails, UserDetailsService {
         return userRepository.save(user);
     }
 
+    public void updateResetPasswordToken(String token, String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User with given email doesn't exist"));
+
+        user.setResetPasswordToken(token);
+        userRepository.save(user);
+    }
+
+    public User getUserByToken(String resetPasswordToken) {
+        return userRepository.findByResetPasswordToken(resetPasswordToken).orElseThrow(
+                () -> new UsernameNotFoundException("User with given token doesn't exist")
+        );
+    }
+
+    public void updatePassword(User user, String newPassword) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(newPassword);
+
+        user.setPassword(encodedPassword);
+        user.setResetPasswordToken(null);
+
+        userRepository.save(user);
+    }
+
     public User findByEmail(String email) {
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("User with given email doesn't exist"));
+    }
+
+    public boolean existByEmail(String email) {
+        return userRepository.existsByEmail(email);
     }
 
 

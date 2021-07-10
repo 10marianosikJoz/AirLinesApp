@@ -1,13 +1,11 @@
 package com.example.airlines.model;
 
 
-import com.example.airlines.dto.UserDTO;
-
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name ="users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
     @Id
@@ -25,14 +23,19 @@ public class User {
     private String lastName;
     private String password;
     private String email;
+    @Column(name = "reset_password_token")
+    private String resetPasswordToken;
     private Boolean blocked = false;
 
     @ManyToMany(fetch = FetchType.EAGER)
-            @JoinTable(name = "user_roles",
-                        joinColumns = @JoinColumn(name = "user_id"),
-                        inverseJoinColumns = @JoinColumn(name = "role_id")
-            )
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
     private Set<Role> roles;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Set<Ticket> tickets;
 
     public User() {
     }
@@ -45,6 +48,15 @@ public class User {
         this.email = email;
         this.blocked = blocked;
         this.roles = roles;
+    }
+
+    public User(Long id, String firstName, String lastName, String password, String email, Boolean blocked) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.email = email;
+        this.blocked = blocked;
     }
 
     public Long getId() {
@@ -101,5 +113,21 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
+    public String getResetPasswordToken() {
+        return resetPasswordToken;
+    }
+
+    public void setResetPasswordToken(String resetPasswordToken) {
+        this.resetPasswordToken = resetPasswordToken;
     }
 }
