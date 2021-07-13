@@ -8,6 +8,7 @@ body {
     min-height: 100vh;
     background: url("/images/3.jpg") no-repeat center;
     background-size: cover;
+    z-index: 100;
 
 }
 
@@ -37,7 +38,7 @@ header {
     margin-left: 100px;
     line-height: 50px;
 }
-.logo h1 {
+.logo h2 {
     color: crimson;
     font-weight: 900;
     text-transform: uppercase;
@@ -119,6 +120,10 @@ span {
 .drop-two:hover span,
 .drop-one:hover span {
     transform: rotate(-180deg);
+}
+
+.header_login_register {
+    display: initial;
 }
 @media (max-width: 1100px) {
     .logo, #navbar {

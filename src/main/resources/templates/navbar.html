@@ -4,42 +4,42 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/css/navbar.css">
+
+
 </head>
 <body>
 <header>
     <div class="bars">&#11166;</div>
     <div class="logo">
-        <h1>Asdsd</h1>
+        <h2>Turkish Airlines</h2>
     </div>
     <ul id="navbar">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
         <li class="drop-one">
-            <a href="#">Services <span>&#11167;</span></a>
+            <a href="#">Plan&Book <span>&#11167;</span></a>
             <div class="menu-one">
                 <ul>
                     <li><h4>Our company</h4></li>
                     <li><img src="images/padlock.png" alt=""></li>
                 </ul>
                 <ul>
-                    <li><h4>Design</h4></li>
-                    <
+                    <li><h4>Book & Manage</h4></li>
+
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Home</a></li>
                 </ul>
                 <ul>
-                    <li><h4>Skills</h4></li>
-                    <
+                    <li><h4>Prepare your trip</h4></li>
+
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Home</a></li>
                 </ul>
                 <ul>
-                    <li><h4>News</h4></li>
-                    <
+                    <li><h4>Additional services</h4></li>
+
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Home</a></li>
@@ -47,8 +47,76 @@
                 </ul>
             </div>
         </li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Home</a></li>
+
+        <li class="drop-one">
+            <a href="#">Fly different <span>&#11167;</span></a>
+            <div class="menu-one">
+                <ul>
+                    <li><h4>Our company</h4></li>
+                    <li><img src="images/padlock.png" alt=""></li>
+                </ul>
+                <ul>
+                    <li><h4>Cabin classes</h4></li>
+
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+                <ul>
+                    <li><h4>Flight experience</h4></li>
+
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+                <ul>
+                    <li><h4>More privileges</h4></li>
+
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="drop-one">
+            <a href="#">Discover <span>&#11167;</span></a>
+            <div class="menu-one">
+                <ul>
+                    <li><h4>Our company</h4></li>
+                    <li><img src="images/padlock.png" alt=""></li>
+                </ul>
+                <ul>
+                    <li><h4>Offers</h4></li>
+
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+                <ul>
+                    <li><h4>Destinations</h4></li>
+
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+                <ul>
+                    <li><h4>Discover more</h4></li>
+
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+        </li>
+
+
         <li class="drop-two">
             <a href="#">Home <span>&#11167;</span></a>
             <ul class="menu-two">
@@ -58,8 +126,7 @@
                 <li><a href="#">Facebook</a></li>
             </ul>
         </li>
-    </ul>
-    <div sec:authorize="!isAuthenticated()" class="header_cart" style="color: white; margin: 5px;">
+        <div sec:authorize="!isAuthenticated()" class="header_login_register" style="color: white; margin: 5px;">
         <a href="/login" style="color: white; text-decoration: none;">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                  class="bi bi-person-circle" viewBox="0 0 16 16" style="color: white; margin: 5px;">
@@ -74,24 +141,31 @@
         <a href="/registration" style="color: white; text-decoration: none;">
             <span>Register</span>
         </a>
-    </div>
+        </div>
 
-    <div sec:authorize="isAuthenticated()" class="header_cart" style="color: white; margin: 5px;">
-        <a href="/userPanel" style="color: white; text-decoration: none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                 class="bi bi-person-circle" viewBox="0 0 16 16" style="color: white; margin: 5px;">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                <path fill-rule="evenodd"
-                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-            </svg>
-            <span th:text="${#authentication.name}"></span>
-        </a>
+        <div sec:authorize="isAuthenticated()" class="header_login_register" style="color: white; margin: 5px;">
+            <a href="/userPanel" style="color: white; text-decoration: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                     class="bi bi-person-circle" viewBox="0 0 16 16" style="color: white; margin: 5px;">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd"
+                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg>
+                <span th:text="${#authentication.name}"></span>
+            </a>
 
 
-        <a th:href="@{logout}" style="color: white; text-decoration: none;">
-            <span>Logout</span>
-        </a>
-    </div>
+            <a th:href="@{logout}" style="color: white; text-decoration: none;">
+                <span>Logout</span>
+            </a>
+        </div>
+    </ul>
+
+
+
+
+
+
 </header>
 <script src="js/navbar.js"></script>
 </body>

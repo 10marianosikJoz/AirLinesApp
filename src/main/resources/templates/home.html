@@ -1,11 +1,219 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css} "/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/home.css">
+
+    <link href=
+                  'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+          rel='stylesheet'>
+    <style>
+        .ui-datepicker {
+            width: 12em;
+        }
+
+        h1 {
+            color: green;
+        }
+    </style>
 </head>
 <body>
 <div th:include="navbar"></div>
+
+
+<div class="main_banner">
+    <span class="first_span">Hello</span>
+    <span class="second_span"> Where do you want to explore?</span>
+</div>
+
+<div class="navigate_buttons">
+    <button type="button" class="btn btn-outline-danger">Book a flight</button>
+    <button type="button" class="btn btn-outline-danger">Check-in / Manage booking</button>
+    <button type="button" class="btn btn-outline-danger">Flight status</button>
+</div>
+
+<div class="glass">
+    <div class="col-xs-12 booker-menu-wrapper">
+        <div class="booker-menu">
+            <!--   <a role="button"><label>
+                   <input type="radio">
+               </label>Round trip</a>
+               <a role="button"><label>
+                   <input type="radio">
+               </label>One way</a>
+               <a role="button"><label>
+                   <input type="radio">
+               </label>Award ticket - Buy a ticket with Miles</a>-->
+
+        </div>
+
+    </div>
+    <div class="booker_content">
+        <div class="from_to">
+            <label class="field field_v1">
+                <input class="field__input" placeholder="e.g. Warsaw">
+                <span class="field__label-wrap">
+      <span class="field__label">From</span>
+    </span>
+            </label>
+
+            <label class="field field_v2">
+                <input class="field__input" placeholder="e.g. London">
+                <span class="field__label-wrap">
+      <span class="field__label">To</span>
+    </span>
+            </label>
+        </div>
+        <div class="container">
+            <span class="start_date">Start Date:</span>
+            <input type="button" id="my_date_picker1" class="btn btn-primary" data-toggle="collapse"
+                   data-target="#toggleDemo" value="Dates">
+            <br>
+            <div id="toggleDemo" class="collapse collapse">
+                <span class="start_date">End Date:</span>
+                <input type="button" id="my_date_picker2" class="btn btn-primary" data-toggle="collapse"
+                       data-target="#toggleDemo" value="Dates">
+                <div id="toggleDemo2" class="collapse collapse">
+                    <script src=
+                                    "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+                    </script>
+                    <script src=
+                                    "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
+                    </script>
+                    <script>
+                        $(document).ready(function () {
+
+                            $(function () {
+                                $("#my_date_picker1").datepicker({});
+                            });
+
+                            $(function () {
+                                $("#my_date_picker2").datepicker({});
+                            });
+
+                            $('#my_date_picker1').change(function () {
+                                startDate = $(this).datepicker('getDate');
+                                $("#my_date_picker2").datepicker("option", "minDate", startDate);
+                            })
+
+                            $('#my_date_picker2').change(function () {
+                                endDate = $(this).datepicker('getDate');
+                                $("#my_date_picker1").datepicker("option", "maxDate", endDate);
+                            })
+                        })
+                    </script>
+
+                </div>
+                <br>
+            </div>
+            <div class="redirect_button">
+                <button type="button"
+                        class="btn btn-danger"><img src="images/arrow.png"></button>
+            </div>
+            <div class="dropdown">
+                <button><img src="images/person.png">
+                    <div class="details">
+                        <span class="cabin_span">Cabin</span>
+                        <span class="eco_span">ECO</span>
+                        <span class="class_span">Class</span>
+                    </div>
+                </button>
+                <ul>
+                    <span class="cab_pas">Cabin and passenger section</span>
+                    <div class="class_chooser">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Economy Class
+                        </label>
+
+                        <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Business Class
+                        </label>
+                    </div>
+
+                    <div class="passengers_section">
+                        <li><span class="adult">Adult</span><br>
+                            <span class="adult">12+</span>
+                        </li>
+
+                        <li>
+                            <span class="child">Child</span><br>
+                            <span class="adult">2 - 11</span>
+                        </li>
+
+                        <li>
+                            <span class="infant">Infant</span><br>
+                            <span class="adult">Under 2 years old</span>
+                        </li>
+
+                        <li>
+                            <span class="student">Student</span><br>
+                            <span class="adult">12 - 34</span>
+                        </li>
+
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="service">
+        <div id="additionalServices">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 additional-badge-countainer">
+                    <div class="col-xs-4 col-sm-4 text-center additional-travelInsurance pl-5-mbl pr-5-mbl">
+                        <a data-bind="attr:{'title':i18n.get('TextField-OB-300.travelinsurance'), 'aria-label':i18n.get('ScreenReader-OB-1.travelinsurance'), 'href' : scheduleLinks.travelInsurance}"
+                           target="_blank" title="Gulf Sigorta Travel Insurance" role="button" tabindex="0"
+                           aria-label="Travel Insurance" href="/en-pl/flights/travel-insurance/"><span
+                                class="additional-badge">
+                    <img src="images/umbrella.png"> </span>
+                            <br>
+                            <div class="well well-dark well-mini fs-12">
+                                <span data-bind="text:i18n.get('TextField-OB-300.travelinsurance')">Gulf Sigorta Travel Insurance</span>
+                                <i class="fa fa-share ml-5" aria-hidden="true"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 text-center additional-rentACar pl-5-mbl pr-5-mbl">
+                        <a data-bind="attr:{'title':i18n.get('TextField-OB-300.rentacar'), 'aria-label':i18n.get('ScreenReader-OB-1.rentacar'), 'href' : scheduleLinks.rentACar}"
+                           target="_blank" title="Rent a Car" role="button" tabindex="0" aria-label="Rent a Car"
+                           href="/en-pl/car-rental/"><span class="additional-badge">
+                    <img src="images/car.png" alt=""> </span><br>
+                            <div class="well well-dark well-mini fs-12">
+                                <span data-bind="text:i18n.get('TextField-OB-300.rentacar')">Rent a Car</span>
+                                <i class="fa fa-share ml-5"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 text-center additional-hotel pl-5-mbl pr-5-mbl hidden-xs hidden-sm">
+                        <a data-bind="attr:{'title':i18n.get('TextField-OB-300.bookahotel'), 'aria-label':i18n.get('ScreenReader-OB-1.bookahotel'), 'href' : scheduleLinks.bookAHotel}"
+                           target="_blank" title="Book a Hotel" role="button" tabindex="0" aria-label="Book a Hotel"
+                           href="https://sp.booking.com/index.html?aid=1320040;label=pagehome-link-1320040-click"><span
+                                class="additional-badge">
+                    <img src="images/bed.png"> </span><br>
+                            <div class="well well-dark well-mini fs-12">
+                                <span data-bind="text:i18n.get('TextField-OB-300.bookahotel')">Book a Hotel</span>
+                                <i class="fa fa-share ml-5" aria-hidden="true"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+<script src="js/dropdown_button.js"></script>
 </html>
