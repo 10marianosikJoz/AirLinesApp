@@ -22,6 +22,7 @@
     letter-spacing: 2px;
 }
 
+
 .navigate_buttons {
     display: flex;
     justify-content: center;
@@ -75,7 +76,7 @@
 .btn-toolbar:after, .btn-toolbar:before,
 .clearfix:after, .clearfix:before,
 .container-fluid:after, .container-fluid:before,
-.container:after, .container:before,
+.quantity_section:after, .quantity_section:before,
 .form-horizontal .form-group:after, .form-horizontal
 .form-group:before, .modal-footer:after, .modal-footer:before,
 .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before,
@@ -386,9 +387,18 @@
     --fieldBorderColorActive: #673AB7;
 }
 
-.container {
+.quantity_section {
     margin-left: 540px;
     margin-top: -48px;
+}
+
+.quantity_section .btn-primary {
+    height: 120px;
+    width: 180px;
+    margin-left: -100px;
+    margin-top: -30px;
+    background-color: #232b38;
+    text-transform: uppercase;
 }
 .start_date {
     color: white;
@@ -408,6 +418,7 @@
     transform: translate(-50%, -50%);
     margin-left: 310px;
     margin-top: -118px;
+
 }
 
 .dropdown button{
@@ -415,7 +426,6 @@
     width: 180px;
     height: 120px;
     font-size: 24px;
-    /*background: #2196f3;*/
     border: none;
     box-shadow: none;
     outline: none;
@@ -429,7 +439,7 @@
     margin: 0;
     padding: 0;
     width: 400px;
-    height: 370px;
+    height: 500px;
     transform-origin: top;
     transform: perspective(1000px) rotateX(-90deg);
     transition: 0.5s;
@@ -465,6 +475,11 @@
     margin-left: 400px;
     margin-top: -37px;
 }
+
+.redirect_button button {
+    height: 120px;
+    margin-top: -31px;
+}
 .dropdown button span {
     font-size: 14px;
 }
@@ -490,20 +505,112 @@
     color: #797F7B;
     font-weight: bold;
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
     font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
     margin-left: 15px;
 }
 
 .class_chooser {
     margin-left: 20px;
+    margin-top: 30px;
 }
 .class_chooser .form-check-label {
     margin-right: 25px;
+    color: #797F7B;
+    font-weight: bold;
 }
-
+.passengers_section {
+    margin-top: 30px;
+}
 .passengers_section li {
     border-bottom: 0.1em solid #C4D4C9;
     max-width:85%;
     margin-left: 27px;
 }
+
+.passengers_section .adult, .child , .student, .infant{
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.passengers_section .adult_age, .child_age , .student_age, .infant_age{
+    color: #A3AEA7;
+    font-size: 16px;
+}
+.row {
+    margin-top: -30px;
+}
+
+.nice-number {
+    margin-left: 150px;
+    display: flex;
+}
+
+.adult_section .nice-number{
+    margin-left: 150px;
+}
+.student_section .nice-number{
+    margin-left: 186px;
+}
+.infant_section .nice-number{
+    margin-left: 186px;
+}
+.child_section  .nice-number{
+    margin-left: 186px;
+}
+
+.nice-number button {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    margin: 0 10px!important;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    align-items: center;
+
+}
+
+.quantity_section input:hover {
+    background: #c9c0a6;
+    color: #fff;
+}
+
+.nice-number {
+    display: inline-flex;
+    justify-content: stretch;
+}
+
+.nice-number input {
+    vertical-align: middle;
+    -moz-appearance: textfield;
+    box-sizing: content-box;
+    margin: 0;
+    text-align: center;
+    width: 20px;
+}
+
+.nice-number input::-webkit-inner-spin-button,
+.nice-number input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.nice-number input {
+    background-color: rgba(145,155,149,0);
+    width: 40px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.nice-number button:hover {
+    background: #242424;
+    color: #fff;
+}
+.redirect_button .btn-danger {
+    margin-top: -82px;
+
+}
+

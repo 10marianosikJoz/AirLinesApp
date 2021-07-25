@@ -1,3 +1,3 @@
-$('button').click(function(){
+document.getElementById('toggle').onclick = function(){
     $('ul').toggleClass('active');
-});
+};
