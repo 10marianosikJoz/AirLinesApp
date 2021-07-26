@@ -222,14 +222,15 @@
 
 .glass {
     height: 400px;
-    width: 1100px;
+    width: 1240px;
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 14px;
     backdrop-filter: blur(5px);
     background: radial-gradient(at 50% 0%, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.3));
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease-in-out;
-    margin-left: 280px;
+    /*margin-left: 240px;*/
+    margin: auto;
     margin-top: 20px;
 
 }
@@ -416,7 +417,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    margin-left: 310px;
+    margin-left: 300px;
     margin-top: -118px;
 
 }
@@ -431,7 +432,13 @@
     outline: none;
     cursor: pointer;
     color: #fff;
+    margin-left: 245px;
     background-color: #232b38;
+}
+.dropdown .class_counter_ticket {
+    margin-left: 130px;
+    margin-top: -104px;
+    font-size: 25px;
 }
 
 .dropdown ul{
@@ -449,6 +456,8 @@
 
 .dropdown ul.active{
     transform: perspective(1000px) rotateX(0deg);
+    right: 0;
+
 }
 
 .dropdown ul li {
@@ -478,7 +487,8 @@
 
 .redirect_button button {
     height: 120px;
-    margin-top: -31px;
+
+    margin-left: 190px;
 }
 .dropdown button span {
     font-size: 14px;
@@ -609,8 +619,30 @@
     background: #242424;
     color: #fff;
 }
+
 .redirect_button .btn-danger {
     margin-top: -82px;
 
 }
+.quantity_section .datepicker {
+    background-color: #232b38;
+    height: 120px;
+    color: white;
+    text-align: center;
+}
+::placeholder {
+    color: red;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+}
+.departure_date_picker {
+    margin-left: -50px;
+    margin-top: -38px;
+}
+.return_date_picker {
+    margin-top: -120px;
+    margin-left: 165px;
+}
+
 

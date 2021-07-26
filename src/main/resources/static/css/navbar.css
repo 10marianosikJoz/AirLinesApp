@@ -84,12 +84,14 @@ header a {
 }
 .menu-one ul h4 {
     text-transform: uppercase;
-    color: teal;
+    color: white;
     font-size: 20px;
-    font-weight: 900;
 }
 .menu-one ul a {
-    color: black;
+    color: rgba(225,225,225,.75)!important;
+}
+.menu-one li {
+    text-align: left;
 }
 .menu-one ul img {
     width: 100%;
@@ -120,6 +122,9 @@ span {
 .drop-two:hover span,
 .drop-one:hover span {
     transform: rotate(-180deg);
+}
+.menu-one ul {
+    background: rgba(43,57,71,.95);;
 }
 
 .header_login_register {

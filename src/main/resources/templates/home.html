@@ -10,23 +10,15 @@
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/home.css">
 
-    <link href=
-                  'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
-          rel='stylesheet'>
-    <style>
-        .ui-datepicker {
-            width: 12em;
-        }
-
-        h1 {
-            color: green;
-        }
-    </style>
 </head>
 <body>
 <div th:include="navbar"></div>
@@ -77,51 +69,13 @@
         </div>
         <div class="quantity_section">
 
-            <span class="start_date">Start Date:</span>
-            <input type="button" id="my_date_picker1" class="btn btn-primary" data-toggle="collapse"
-                   data-target="#toggleDemo" value="Dates">
-            <br>
-            <div id="toggleDemo" class="collapse collapse">
-                <span class="start_date">End Date:</span>
-                <input type="button" id="my_date_picker2" class="btn btn-primary" data-toggle="collapse"
-                       data-target="#toggleDemo" value="Dates">
-                <div id="toggleDemo2" class="collapse collapse">
-                    <script src=
-                                    "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-                    </script>
-                    <script src=
-                                    "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
-                    </script>
-                    <script>
-                        $(document).ready(function () {
-
-                            $(function () {
-                                $("#my_date_picker1").datepicker({});
-                            });
-
-                            $(function () {
-                                $("#my_date_picker2").datepicker({});
-                            });
-
-                            $('#my_date_picker1').change(function () {
-                                startDate = $(this).datepicker('getDate');
-                                $("#my_date_picker2").datepicker("option", "minDate", startDate);
-                            })
-
-                            $('#my_date_picker2').change(function () {
-                                endDate = $(this).datepicker('getDate');
-                                $("#my_date_picker1").datepicker("option", "maxDate", endDate);
-                            })
-                        })
-                    </script>
-
-                </div>
-                <br>
+            <div class="departure_date_picker">
+                <input class="datepicker" id="departure_datepicker" width="180px" placeholder="Departure" readonly>
             </div>
 
-
-
-
+            <div class="return_date_picker">
+                <input class="datepicker" id="return_datepicker" width="180px" placeholder="Return" readonly>
+            </div>
             <div class="redirect_button">
                 <button type="button"
                         class="btn btn-danger"><img src="images/arrow.png"></button>
@@ -132,6 +86,7 @@
                         <span class="cabin_span">Cabin</span>
                         <span class="eco_span" id="eco">ECO</span>
                         <span class="class_span">Class</span>
+
                     </div>
                 </button>
                 <ul>
@@ -150,34 +105,34 @@
 
                     <div class="passengers_section">
                         <div class="adult_section">
-                        <li><span class="adult">Adult</span><br>
-                            <span class="adult_age">12+</span>
-                            <input type="number" name="" id value="1" min="0">
-                        </li>
+                            <li><span class="adult">Adult</span><br>
+                                <span class="adult_age">12+</span>
+                                <input type="number" readonly name="" value="1" min="0" id="counter">
+                            </li>
                         </div>
 
                         <div class="child_section">
-                        <li>
-                            <span class="child">Child</span><br>
-                            <span class="child_age">2 - 11</span>
-                            <input type="number" name="" id value="1" min="0">
-                        </li>
+                            <li>
+                                <span class="child">Child</span><br>
+                                <span class="child_age">2 - 11</span>
+                                <input type="number" readonly name="" id value="1" min="0">
+                            </li>
                         </div>
 
                         <div class="infant_section">
-                        <li>
-                            <span class="infant">Infant</span><br>
-                            <span class="infant_age">Under 2 years old</span>
-                            <input type="number" name="" id value="1" min="0">
-                        </li>
+                            <li>
+                                <span class="infant">Infant</span><br>
+                                <span class="infant_age">Under 2 years old</span>
+                                <input type="number" readonly name="" id value="1" min="0">
+                            </li>
                         </div>
 
                         <div class="student_section">
-                        <li>
-                            <span class="student">Student</span><br>
-                            <span class="student_age">12 - 34</span>
-                            <input type="number" name="" id value="1" min="0">
-                        </li>
+                            <li>
+                                <span class="student">Student</span><br>
+                                <span class="student_age">12 - 34</span>
+                                <input type="number" readonly name="" id value="1" min="0">
+                            </li>
                         </div>
 
 
@@ -238,4 +193,6 @@
 <script src="js/quantity_button.js"></script>
 <script src="js/quantity_button_logic.js"></script>
 <script src="js/plane_class.js"></script>
+<script src="js/quantity_ticket_increment.js"></script>
+<script src="js/datepicker.js"></script>
 </html>
