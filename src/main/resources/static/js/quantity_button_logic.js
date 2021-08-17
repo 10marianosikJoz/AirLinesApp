@@ -7,12 +7,6 @@
             buttonIncrement: '+',
             buttonPosition: 'around',
 
-            /**
-             callbackFunction
-             @param {$input} currentInput - the input running the callback
-             @param {number} amount - the amount after increase/decrease
-             @param {object} settings - the passed niceNumber settings
-             **/
             onDecrement: false,
             onIncrement: false,
         };
@@ -26,10 +20,8 @@
                 attrMax = null,
                 attrMin = null;
 
-            // Skip already initialized input
             if ($currentInput.attr('data-nice-number-initialized')) return;
 
-            // Handle max and min values
             if (
                 maxValue !== undefined &&
                 maxValue !== false
@@ -44,20 +36,17 @@
                 attrMin = parseFloat(minValue);
             }
 
-            // Fix issue with initial value being < min
             if (attrMin && !currentInput.value) {
                 $currentInput.val(attrMin);
             }
 
-            // Generate container
             var $inputContainer = $('<div/>', {
                 class: 'nice-number',
             }).insertAfter(currentInput);
 
-            // Generate interval (object so it is passed by reference)
             var interval = {};
 
-            // Generate buttons
+
             var $minusButton = $('<button/>')
                 .attr('type', 'button')
                 .html(settings.buttonDecrement)
@@ -80,7 +69,6 @@
                         }
                     });
 
-                    // Trigger the input event here to avoid event spam
                     if (event.type == 'mouseup' || event.type == 'mouseleave') {
                         $currentInput.trigger('input');
                     }
@@ -114,10 +102,8 @@
                     }
                 });
 
-            // Remember that we have initialized this input
             $currentInput.attr('data-nice-number-initialized', true);
 
-            // Append elements
             switch (settings.buttonPosition) {
                 case 'left':
                     $minusButton.appendTo($inputContainer);
@@ -137,7 +123,6 @@
                     break;
             }
 
-            // Nicely size input
             if (settings.autoSize) {
                 $currentInput.width(
                     $currentInput.val().length + settings.autoSizeBuffer + 'ch'

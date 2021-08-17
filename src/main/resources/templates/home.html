@@ -19,8 +19,10 @@
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/home.css">
 
+
 </head>
 <body>
+
 <div th:include="navbar"></div>
 
 
@@ -54,14 +56,14 @@
     <div class="booker_content">
         <div class="from_to">
             <label class="field field_v1">
-                <input class="field__input" placeholder="e.g. Warsaw">
+                <input class="field__input" placeholder="e.g. Warsaw" maxlength="18" id="from">
                 <span class="field__label-wrap">
       <span class="field__label">From</span>
     </span>
             </label>
 
             <label class="field field_v2">
-                <input class="field__input" placeholder="e.g. London">
+                <input class="field__input" placeholder="e.g. London" maxlength="20" id="to">
                 <span class="field__label-wrap">
       <span class="field__label">To</span>
     </span>
@@ -69,13 +71,7 @@
         </div>
         <div class="quantity_section">
 
-            <div class="departure_date_picker">
-                <input class="datepicker" id="departure_datepicker" width="180px" placeholder="Departure" readonly>
-            </div>
-
-            <div class="return_date_picker">
-                <input class="datepicker" id="return_datepicker" width="180px" placeholder="Return" readonly>
-            </div>
+            <div th:include="datepicker"></div>
             <div class="redirect_button">
                 <button type="button"
                         class="btn btn-danger"><img src="images/arrow.png"></button>
@@ -86,6 +82,7 @@
                         <span class="cabin_span">Cabin</span>
                         <span class="eco_span" id="eco">ECO</span>
                         <span class="class_span">Class</span>
+                        <span class="class_counter_ticket" id="counter">0</span>
 
                     </div>
                 </button>
@@ -107,7 +104,7 @@
                         <div class="adult_section">
                             <li><span class="adult">Adult</span><br>
                                 <span class="adult_age">12+</span>
-                                <input type="number" readonly name="" value="1" min="0" id="counter">
+                                <input type="number" readonly name="" value="1" min="0" max="9" id="adult_counter">
                             </li>
                         </div>
 
@@ -115,7 +112,7 @@
                             <li>
                                 <span class="child">Child</span><br>
                                 <span class="child_age">2 - 11</span>
-                                <input type="number" readonly name="" id value="1" min="0">
+                                <input type="number" readonly name=""  value="1" min="0" max="9" id="child_counter">
                             </li>
                         </div>
 
@@ -123,7 +120,7 @@
                             <li>
                                 <span class="infant">Infant</span><br>
                                 <span class="infant_age">Under 2 years old</span>
-                                <input type="number" readonly name="" id value="1" min="0">
+                                <input type="number" readonly name=""  value="1" min="0" max="9" id="infant_counter">
                             </li>
                         </div>
 
@@ -131,11 +128,15 @@
                             <li>
                                 <span class="student">Student</span><br>
                                 <span class="student_age">12 - 34</span>
-                                <input type="number" readonly name="" id value="1" min="0">
+                                <input type="number" readonly name=""  value="1" min="0" max="9" id="student_counter">
                             </li>
                         </div>
 
-
+                        <div class="submit_button">
+                            <button type="submit"
+                                    class="btn btn-danger" id="submit_btn" onclick="add()"><span>Submit
+                            </span></button>
+                        </div>
                     </div>
                 </ul>
             </div>
@@ -189,10 +190,12 @@
     </div>
 </div>
 </body>
+
 <script src="js/dropdown_button.js"></script>
 <script src="js/quantity_button.js"></script>
 <script src="js/quantity_button_logic.js"></script>
 <script src="js/plane_class.js"></script>
-<script src="js/quantity_ticket_increment.js"></script>
 <script src="js/datepicker.js"></script>
+<script src="js/from_to_fields_validation.js"></script>
+<script src="js/quantity_ticket_submit_button.js"></script>
 </html>

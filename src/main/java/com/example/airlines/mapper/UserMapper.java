@@ -16,7 +16,7 @@ public class UserMapper {
         this.modelMapper = modelMapper;
     }
 
-    public UserDTO convertToDto (User user) {
+    public UserDTO convertToUserDto(User user) {
         UserDTO userDTO = modelMapper.map(user,UserDTO.class);
         userDTO.setFirstName(user.getFirstName());
         userDTO.setLastName(user.getLastName());

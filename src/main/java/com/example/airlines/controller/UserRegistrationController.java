@@ -35,7 +35,7 @@ public class UserRegistrationController {
 
     @ModelAttribute("user")
     public UserDTO userDTO() {
-        return userMapper.convertToDto(user);
+        return userMapper.convertToUserDto(user);
     }
 
     @GetMapping

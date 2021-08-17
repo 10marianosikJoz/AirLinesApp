@@ -1,10 +1,4 @@
-/*$(document).ready(function () {
 
-    $("input[type=radio]").change(function () {
-        $('.eco_span').text('ECO');
-    });
-
-});*/
 $(document).ready(function () {
 
     var eco_checkbox = document.getElementById('flexRadioDefault1');
