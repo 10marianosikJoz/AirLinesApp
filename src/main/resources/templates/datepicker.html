@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:margin-left="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:margin-left="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -26,7 +26,7 @@
         <div class="flex-col-sm-4">
             <div class="form-field-wrapper">
                 <div class="input-group date datetimepickerclass" id="datetimepicker1">
-                    <input class="datetimepickerclass-2" type="text" id="datetimepicker1"   placeholder="DEPARTURE" style="width: 170px">
+                    <input type="text" th:value="*{departureDate}" th:field="*{departureDate}" class="datetimepickerclass-2"  id="datetimepicker1"   placeholder="DEPARTURE" style="width: 170px">
                     <span class="input-group-addon">
                                           <span class="glyphicon glyphicon-calendar"></span>
                                           </span>
@@ -36,7 +36,7 @@
         <div class="flex-col-sm-4">
             <div class="form-field-wrapper">
                 <div class="input-group date datetimepickerclass" id="datetimepicker2" style="width: 170px">
-                    <input class="datetimepickerclass-1" type="text" id="datetimepicker2" placeholder="RETURN">
+                    <input type="text"  th:value="*{departureDate}" th:field="*{returnDate}" class="datetimepickerclass-1"  id="datetimepicker2" placeholder="RETURN">
                     <span class="input-group-addon">
                                           <span class="glyphicon glyphicon-calendar"></span>
                                           </span>

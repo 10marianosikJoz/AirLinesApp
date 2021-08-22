@@ -17,9 +17,6 @@ public class FlightService {
         this.flightRepository = flightRepository;
     }
 
-    public List<Flight> getFlights() {
-        return flightRepository.findAll();
-    }
 
     public Flight getFlightByProperties(String from,
                                         String destination,
@@ -31,5 +28,9 @@ public class FlightService {
                 flightClass,
                 departureDate,
                 returnDate).orElseThrow(NoSuchElementException::new);
+    }
+
+    public Flight getFlightByFlightNumber(String flightNumber) {
+        return flightRepository.findByFlightNumber(flightNumber).orElseThrow(NoSuchElementException::new);
     }
 }

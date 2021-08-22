@@ -22,6 +22,7 @@ public class Ticket {
     private String seat;
     private String gate;
     private double baggageWeight;
+    private String terminal;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(
@@ -93,5 +94,13 @@ public class Ticket {
 
     public void setFlight(Flight flight) {
         this.flight = flight;
+    }
+
+    public String getTerminal() {
+        return terminal;
+    }
+
+    public void setTerminal(String terminal) {
+        this.terminal = terminal;
     }
 }

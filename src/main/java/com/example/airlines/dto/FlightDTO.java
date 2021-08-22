@@ -1,5 +1,6 @@
 package com.example.airlines.dto;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -15,6 +16,8 @@ public class FlightDTO {
     private LocalTime departureTime;
     private LocalTime arrivalTime;
     private String flightNumber;
+    private int distance;
+    private Duration flightDuration;
 
     public String getFrom() {
         return from;
@@ -78,6 +81,27 @@ public class FlightDTO {
 
     public void setFlightNumber(String flightNumber) {
         this.flightNumber = flightNumber;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    /*public String getFlightDuration() {
+        return String.format("%d:%02d%n", flightDuration.between(departureTime,arrivalTime).toHoursPart(),Duration.between(departureTime,arrivalTime).toMinutesPart());
+
+    }
+
+    public void setFlightDuration(Duration flightDuration) {
+        this.flightDuration = flightDuration;
+    }*/
+
+    public Duration getFlightDuration() {
+        return flightDuration;
     }
 }
 

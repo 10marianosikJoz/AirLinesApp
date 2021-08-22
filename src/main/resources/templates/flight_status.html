@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:object="${flight}" th:text="*{from}"></span>
+
+<label>Destination:</label>
+<span th:object="${flight}" th:text="*{destination}"></span>
+
+<label>Flight class:</label>
+<span  th:object="${flight}" th:text="*{flightClass}"></span>
+
+
+<label>Departure date:</label>
+<span th:object="${flight}" th:text="*{departureDate}"></span>
+
+<label>Return date:</label>
+<span th:object="${flight}" th:text="*{returnDate}"></span>
+
+
+<div class="buttondiv">
+    <button class="btn btn-primary" type="submit">Save</button>
+    <a href="/">
+        <button class="btn btn-primary" type="button">Cancel</button>
+    </a>
+</div>
+</body>
+</html>

@@ -14,6 +14,9 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css"/>
+
+
+
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/css/navbar.css">
@@ -54,30 +57,32 @@
 
     </div>
     <div class="booker_content">
+        <form th:action="@{/available_flights}" th:object="${flight}"  method="post" id="frm" >
         <div class="from_to">
             <label class="field field_v1">
-                <input class="field__input" placeholder="e.g. Warsaw" maxlength="18" id="from">
+                <input th:field="*{from}" class="field__input" placeholder="e.g. Warsaw" maxlength="18" id="from">
                 <span class="field__label-wrap">
       <span class="field__label">From</span>
     </span>
             </label>
 
             <label class="field field_v2">
-                <input class="field__input" placeholder="e.g. London" maxlength="20" id="to">
+                <input th:field="*{destination}" class="field__input" placeholder="e.g. London" maxlength="20" id="to">
                 <span class="field__label-wrap">
       <span class="field__label">To</span>
     </span>
             </label>
         </div>
         <div class="quantity_section">
-
             <div th:include="datepicker"></div>
+            <!--<input type="text"  th:value="*{departureDate}" th:field="*{departureDate}">
+            <input type="text" th:value="*{returnDate}" th:field="*{returnDate}">-->
             <div class="redirect_button">
-                <button type="button"
+                <button type="submit"
                         class="btn btn-danger"><img src="images/arrow.png"></button>
             </div>
             <div class="dropdown">
-                <button id="toggle"><img src="images/person.png">
+                <button type="button" id="toggle"><img src="images/person.png">
                     <div class="details">
                         <span class="cabin_span">Cabin</span>
                         <span class="eco_span" id="eco">ECO</span>
@@ -89,12 +94,13 @@
                 <ul>
                     <span class="cab_pas">Cabin and passenger section</span>
                     <div class="class_chooser">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
+                        <input class="form-check-input" th:field="*{flightClass}" th:value="Eco"  type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
                         <label class="form-check-label" for="flexRadioDefault1">
                             Economy Class
                         </label>
 
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault2">
+
+                        <input class="form-check-input" th:field="*{flightClass}" th:value="Bus" type="radio"  name="flexRadioDefault1" id="flexRadioDefault2">
                         <label class="form-check-label" for="flexRadioDefault2">
                             Business Class
                         </label>
@@ -133,7 +139,7 @@
                         </div>
 
                         <div class="submit_button">
-                            <button type="submit"
+                            <button type="button"
                                     class="btn btn-danger" id="submit_btn" onclick="add()"><span>Submit
                             </span></button>
                         </div>
@@ -141,6 +147,7 @@
                 </ul>
             </div>
         </div>
+        </form>
     </div>
 
 

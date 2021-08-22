@@ -1,8 +1,10 @@
 package com.example.airlines.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Set;
 
@@ -25,8 +27,10 @@ public class Flight {
     private String destination;
     @Column(name = "flight_class")
     private String flightClass;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "departure_date")
     private LocalDate departureDate;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "return_date")
     private LocalDate returnDate;
     @Column(name = "departure_time")
@@ -35,6 +39,11 @@ public class Flight {
     private LocalTime arrivalTime;
     @Column(name = "flight_number")
     private String flightNumber;
+    @Column(name = "flight_distance")
+    private int flightDistance;
+    @Column(name = "flight_duration")
+    @DateTimeFormat(pattern = "HH:mm")
+    private Duration flightDuration;
 
     @OneToMany(mappedBy = "flight")
     private Set<Ticket> tickets;
@@ -44,14 +53,16 @@ public class Flight {
     }
 
     public Flight(
-                  String from,
-                  String destination,
-                  String flightClass,
-                  LocalDate departureDate,
-                  LocalDate returnDate,
-                  LocalTime departureTime,
-                  LocalTime arrivalTime,
-                  String flightNumber) {
+            String from,
+            String destination,
+            String flightClass,
+            LocalDate departureDate,
+            LocalDate returnDate,
+            LocalTime departureTime,
+            LocalTime arrivalTime,
+            String flightNumber,
+            int flightDistance,
+            Duration flightDuration) {
         this.from = from;
         this.destination = destination;
         this.flightClass = flightClass;
@@ -60,6 +71,8 @@ public class Flight {
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.flightNumber = flightNumber;
+        this.flightDistance = flightDistance;
+        this.flightDuration = flightDuration;
     }
 
     public Long getId() {
@@ -140,5 +153,21 @@ public class Flight {
 
     public void setDepartureTime(LocalTime departureTime) {
         this.departureTime = departureTime;
+    }
+
+    public int getFlightDistance() {
+        return flightDistance;
+    }
+
+    public void setFlightDistance(int flightDistance) {
+        this.flightDistance = flightDistance;
+    }
+
+    public Duration getFlightDuration() {
+       return flightDuration.between(departureTime,arrivalTime);
+    }
+
+    public void setFlightDuration(Duration flightDuration) {
+        this.flightDuration = flightDuration;
     }
 }
