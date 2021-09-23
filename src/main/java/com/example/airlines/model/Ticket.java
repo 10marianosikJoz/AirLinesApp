@@ -18,6 +18,7 @@ public class Ticket {
             generator = "ticket_sequence"
     )
     private Long id;
+    private String ticketNumber;
     private BigDecimal price;
     private String seat;
     private String gate;
@@ -46,6 +47,14 @@ public class Ticket {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTicketNumber() {
+        return ticketNumber;
+    }
+
+    public void setTicketNumber(String ticketNumber) {
+        this.ticketNumber = ticketNumber;
     }
 
     public BigDecimal getPrice() {

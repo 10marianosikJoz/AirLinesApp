@@ -35,118 +35,179 @@
 </div>
 
 <div class="navigate_buttons">
-    <button type="button" class="btn btn-outline-danger">Book a flight</button>
-    <button type="button" class="btn btn-outline-danger">Check-in / Manage booking</button>
-    <button type="button" class="btn btn-outline-danger">Flight status</button>
+    <button type="button" id="flight_book_btn" class="btn btn-outline-danger">Book a flight</button>
+    <button type="button" id="flight_check_in_btn"class="btn btn-outline-danger">Check-in / Manage booking</button>
+    <button type="button" id="flight_status_btn" class="btn btn-outline-danger">Flight status</button>
 </div>
 
 <div class="glass">
     <div class="col-xs-12 booker-menu-wrapper">
         <div class="booker-menu">
-            <!--   <a role="button"><label>
-                   <input type="radio">
-               </label>Round trip</a>
-               <a role="button"><label>
-                   <input type="radio">
-               </label>One way</a>
-               <a role="button"><label>
-                   <input type="radio">
-               </label>Award ticket - Buy a ticket with Miles</a>-->
 
         </div>
 
     </div>
-    <div class="booker_content">
-        <form th:action="@{/available_flights}" th:object="${flight}"  method="post" id="frm" >
-        <div class="from_to">
-            <label class="field field_v1">
-                <input th:field="*{from}" class="field__input" placeholder="e.g. Warsaw" maxlength="18" id="from">
-                <span class="field__label-wrap">
-      <span class="field__label">From</span>
-    </span>
-            </label>
-
-            <label class="field field_v2">
-                <input th:field="*{destination}" class="field__input" placeholder="e.g. London" maxlength="20" id="to">
-                <span class="field__label-wrap">
-      <span class="field__label">To</span>
-    </span>
-            </label>
+    <div class="flight_status_content" id="flight_status_content" style="display: none">
+        <form th:action="@{/flight_status}" th:object="${flight}" method="post" id="fm">
+        <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Flight no.
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Link 1</a>
+                <a class="dropdown-item" href="#">Link 2</a>
+                <a class="dropdown-item" href="#">Link 3</a>
+            </div>
         </div>
-        <div class="quantity_section">
-            <div th:include="datepicker"></div>
-            <!--<input type="text"  th:value="*{departureDate}" th:field="*{departureDate}">
-            <input type="text" th:value="*{returnDate}" th:field="*{returnDate}">-->
+        <div class="flight_number_input">
+    <label class="field field_v2">
+        <input th:field="*{flightNumber}"  class="field__input" placeholder="Enter flight number"
+               maxlength="4"
+               id="flight_number">
+        <span class="field__label-wrap">
+      <span class="field__label">TK</span>
+    </span>
+    </label>
+        </div>
+        <div class="flight_status_datepicker">
+        <div th:include="flight_status_datepicker"></div>
+        </div>
+        <div class="redirect_button">
+        <button type="submit"
+                class="btn btn-danger" id="status_button"><img src="images/arrow.png"></button>
+    </div>
+        </form>
+</div>
+
+
+    <div class="flight_check_in_content" id="flight_check_in_content" style="display: none">
+        <form th:action="@{/flight_status}" th:object="${flight}" method="post" id="fms">
+
+            <div class="flight_ticket_number_and_surname_passenger">
+                <label class="field field_v2">
+                    <input  th:field="*{flightNumber}"  class="field__input" placeholder="Enter ticket number"
+                           maxlength="10"
+                           id="flight_ticket_number">
+                    <span class="field__label-wrap">
+      <span class="field__label">Ticket No.</span>
+    </span>
+                </label>
+
+
+                <label class="field field_v2">
+                    <input th:field="*{flightNumber}"  class="field__input" placeholder="Enter passenger surname"
+                           maxlength="15"
+                           id="flight_passenger_surname">
+                    <span class="field__label-wrap">
+      <span class="field__label">Passenger surname</span>
+    </span>
+                </label>
+            </div>
             <div class="redirect_button">
                 <button type="submit"
-                        class="btn btn-danger"><img src="images/arrow.png"></button>
+                        class="btn btn-danger" id="checki_in_button"><img src="images/arrow.png"></button>
             </div>
-            <div class="dropdown">
-                <button type="button" id="toggle"><img src="images/person.png">
-                    <div class="details">
-                        <span class="cabin_span">Cabin</span>
-                        <span class="eco_span" id="eco">ECO</span>
-                        <span class="class_span">Class</span>
-                        <span class="class_counter_ticket" id="counter">0</span>
-
-                    </div>
-                </button>
-                <ul>
-                    <span class="cab_pas">Cabin and passenger section</span>
-                    <div class="class_chooser">
-                        <input class="form-check-input" th:field="*{flightClass}" th:value="Eco"  type="radio" name="flexRadioDefault1" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            Economy Class
-                        </label>
+        </form>
+    </div>
 
 
-                        <input class="form-check-input" th:field="*{flightClass}" th:value="Bus" type="radio"  name="flexRadioDefault1" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            Business Class
-                        </label>
-                    </div>
 
-                    <div class="passengers_section">
-                        <div class="adult_section">
-                            <li><span class="adult">Adult</span><br>
-                                <span class="adult_age">12+</span>
-                                <input type="number" readonly name="" value="1" min="0" max="9" id="adult_counter">
-                            </li>
+
+    <div class="booker_content" id="booker_content">
+        <form th:action="@{/available_flights}" th:object="${flight}" method="post" id="frm">
+            <div class="from_to">
+                <label class="field field_v1">
+                    <input th:field="*{from}" class="field__input" placeholder="e.g. Warsaw" maxlength="18" id="from">
+                    <span class="field__label-wrap">
+      <span class="field__label">From</span>
+    </span>
+                </label>
+
+
+
+                <label class="field field_v2">
+                    <input th:field="*{destination}" class="field__input" placeholder="e.g. London" maxlength="20"
+                           id="to">
+                    <span class="field__label-wrap">
+      <span class="field__label">To</span>
+    </span>
+                </label>
+            </div>
+            <div class="quantity_section">
+                <div th:include="booking_datepicker"></div>
+                <div class="redirect_button">
+                    <button type="submit"
+                            class="btn btn-danger" id="search_button"><img src="images/arrow.png"></button>
+                </div>
+                <div class="dropdown">
+                    <button type="button" id="toggle"><img src="images/person.png">
+                        <div class="details">
+                            <span class="cabin_span">Cabin</span>
+                            <span class="eco_span" id="eco">ECO</span>
+                            <span class="class_span">Class</span>
+                            <span class="class_counter_ticket" id="counter">0</span>
+
+                        </div>
+                    </button>
+                    <ul>
+                        <span class="cab_pas">Cabin and passenger section</span>
+                        <div class="class_chooser">
+                            <input class="form-check-input" th:field="*{flightClass}" th:value="Eco" type="radio"
+                                   name="flexRadioDefault1" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                Economy Class
+                            </label>
+
+
+                            <input class="form-check-input" th:field="*{flightClass}" th:value="Bus" type="radio"
+                                   name="flexRadioDefault1" id="flexRadioDefault2">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                Business Class
+                            </label>
                         </div>
 
-                        <div class="child_section">
-                            <li>
-                                <span class="child">Child</span><br>
-                                <span class="child_age">2 - 11</span>
-                                <input type="number" readonly name=""  value="1" min="0" max="9" id="child_counter">
-                            </li>
-                        </div>
+                        <div class="passengers_section">
+                            <div class="adult_section">
+                                <li><span class="adult">Adult</span><br>
+                                    <span class="adult_age">12+</span>
+                                    <input type="number" readonly name="" value="1" min="0" max="9" id="adult_counter">
+                                </li>
+                            </div>
 
-                        <div class="infant_section">
-                            <li>
-                                <span class="infant">Infant</span><br>
-                                <span class="infant_age">Under 2 years old</span>
-                                <input type="number" readonly name=""  value="1" min="0" max="9" id="infant_counter">
-                            </li>
-                        </div>
+                            <div class="child_section">
+                                <li>
+                                    <span class="child">Child</span><br>
+                                    <span class="child_age">2 - 11</span>
+                                    <input type="number" readonly name="" value="1" min="0" max="9" id="child_counter">
+                                </li>
+                            </div>
 
-                        <div class="student_section">
-                            <li>
-                                <span class="student">Student</span><br>
-                                <span class="student_age">12 - 34</span>
-                                <input type="number" readonly name=""  value="1" min="0" max="9" id="student_counter">
-                            </li>
-                        </div>
+                            <div class="infant_section">
+                                <li>
+                                    <span class="infant">Infant</span><br>
+                                    <span class="infant_age">Under 2 years old</span>
+                                    <input type="number" readonly name="" value="1" min="0" max="9" id="infant_counter">
+                                </li>
+                            </div>
 
-                        <div class="submit_button">
-                            <button type="button"
-                                    class="btn btn-danger" id="submit_btn" onclick="add()"><span>Submit
+                            <div class="student_section">
+                                <li>
+                                    <span class="student">Student</span><br>
+                                    <span class="student_age">12 - 34</span>
+                                    <input type="number" readonly name="" value="1" min="0" max="9"
+                                           id="student_counter">
+                                </li>
+                            </div>
+
+                            <div class="submit_button">
+                                <button type="button"
+                                        class="btn btn-danger" id="submit_btn" onclick="add()"><span>Submit
                             </span></button>
+                            </div>
                         </div>
-                    </div>
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
         </form>
     </div>
 
@@ -202,7 +263,9 @@
 <script src="js/quantity_button.js"></script>
 <script src="js/quantity_button_logic.js"></script>
 <script src="js/plane_class.js"></script>
-<script src="js/datepicker.js"></script>
 <script src="js/from_to_fields_validation.js"></script>
 <script src="js/quantity_ticket_submit_button.js"></script>
+<script src="js/flight_status_content.js"></script>
+<script src="js/book_flight_content.js"></script>
+<script src="js/flight_check_in_content.js"></script>
 </html>

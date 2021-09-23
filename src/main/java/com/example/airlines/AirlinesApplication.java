@@ -39,6 +39,7 @@ public class AirlinesApplication implements CommandLineRunner {
     }
 
 
+
     @Override
     public void run(String... args) throws Exception {
 //		addToDatabase();
@@ -60,6 +61,16 @@ public class AirlinesApplication implements CommandLineRunner {
                 LocalTime.of(12, 33, 11),
                 "11", 2222, Duration.between(LocalTime.of(12, 11, 11),
                 LocalTime.of(12, 33, 11))));
+
+        flightRepository.save(new Flight("Warsaw",
+                "Tokio",
+                "Bus",
+                LocalDate.of(2021, 11, 22),
+                LocalDate.of(2021, 11, 27),
+                LocalTime.of(11, 0, 0),
+                LocalTime.of(19, 0, 0),
+                "12", 2222, Duration.between(LocalTime.of(11, 0, 0),
+                LocalTime.of(19, 0, 0))));
     }
 
 

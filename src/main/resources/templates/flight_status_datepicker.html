@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+
+
+
+<div class="flex-col-sm-5">
+    <div class="flex-row">
+        <div class="flex-col-sm-4">
+            <div class="form-field-wrapper">
+                <div class="input-group date datetimepickerclass" id="datetimepicker3">
+                    <input type="text"th:value="*{departureDate}" th:field="*{departureDate}"   class="datetimepickerclass-2"  id="datetimepicker3"   placeholder="DEPARTURE" style="width: 170px">
+                    <span class="input-group-addon">
+                                          <span class="glyphicon glyphicon-calendar"></span>
+                                          </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/flight_status_datepicker.js"></script>
+</html>

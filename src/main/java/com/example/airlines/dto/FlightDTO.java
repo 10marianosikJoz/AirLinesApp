@@ -1,5 +1,7 @@
 package com.example.airlines.dto;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -17,6 +19,7 @@ public class FlightDTO {
     private LocalTime arrivalTime;
     private String flightNumber;
     private int distance;
+    @DateTimeFormat(pattern = "HH:mm")
     private Duration flightDuration;
 
     public String getFrom() {
@@ -91,17 +94,18 @@ public class FlightDTO {
         this.distance = distance;
     }
 
-    /*public String getFlightDuration() {
+    public String getFlightDuration() {
         return String.format("%d:%02d%n", flightDuration.between(departureTime,arrivalTime).toHoursPart(),Duration.between(departureTime,arrivalTime).toMinutesPart());
 
     }
 
-    public void setFlightDuration(Duration flightDuration) {
-        this.flightDuration = flightDuration;
+    /*public Duration getFlightDuration() {
+        return flightDuration;
     }*/
 
-    public Duration getFlightDuration() {
-        return flightDuration;
+    public void setFlightDuration(Duration flightDuration) {
+        this.flightDuration = flightDuration;
     }
+
 }
 

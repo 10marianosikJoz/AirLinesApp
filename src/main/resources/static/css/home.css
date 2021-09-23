@@ -678,5 +678,40 @@
     height: 550px;
     border: 2px solid black;
 }
+.flight_status_content .redirect_button {
+
+    margin-left: 850px;
+    margin-top: -37px;
+}
 
 
+.flight_status_content .dropdown .btn {
+    margin-left: -480px;
+    margin-top: -15px;
+}
+.flight_number_input {
+    margin-left:450px;
+}
+.flight_status_datepicker {
+    margin-left: 690px;
+    margin-top: -37px;
+}
+.flight_number_input {
+    width: 200px;
+    margin-top: 30px
+}
+
+.flight_ticket_number_and_surname_passenger {
+    margin-top: 50px;
+    margin-left: 350px;
+}
+.flight_ticket_number_and_surname_passenger .flight_passenger_surname {
+    margin-left: 200px;
+}
+
+.flight_ticket_number_and_surname_passenger .flight_ticket_number {
+    margin-left: 500px;
+}
+.flight_check_in_content .redirect_button {
+    margin-left: 800px;
+}

@@ -16,5 +16,5 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
                                                                                          String flightClass,
                                                                                          LocalDate departureDate, LocalDate returnDate);
 
-    Optional<Flight> findByFlightNumber(String flightNumber);
+    Optional<Flight> findByFlightNumberAndDepartureDate(String flightNumber, LocalDate departureDate);
 }

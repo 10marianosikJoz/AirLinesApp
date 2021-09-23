@@ -163,8 +163,9 @@ public class Flight {
         this.flightDistance = flightDistance;
     }
 
-    public Duration getFlightDuration() {
-       return flightDuration.between(departureTime,arrivalTime);
+    public String getFlightDuration() {
+        return String.format("%d:%02d%n", flightDuration.between(departureTime,arrivalTime).toHoursPart(),Duration.between(departureTime,arrivalTime).toMinutesPart());
+
     }
 
     public void setFlightDuration(Duration flightDuration) {

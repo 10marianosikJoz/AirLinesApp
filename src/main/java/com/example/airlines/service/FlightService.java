@@ -5,7 +5,6 @@ import com.example.airlines.repository.FlightRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -30,7 +29,7 @@ public class FlightService {
                 returnDate).orElseThrow(NoSuchElementException::new);
     }
 
-    public Flight getFlightByFlightNumber(String flightNumber) {
-        return flightRepository.findByFlightNumber(flightNumber).orElseThrow(NoSuchElementException::new);
+    public Flight getFlightByFlightNumberAndDepartureDate(String flightNumber, LocalDate departureDate) {
+        return flightRepository.findByFlightNumberAndDepartureDate(flightNumber, departureDate).orElseThrow(NoSuchElementException::new);
     }
 }

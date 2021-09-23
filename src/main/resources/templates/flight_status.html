@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<label>From:</label>
 <span th:object="${flight}" th:text="*{from}"></span>
 
 <label>Destination:</label>
@@ -19,6 +20,15 @@
 
 <label>Return date:</label>
 <span th:object="${flight}" th:text="*{returnDate}"></span>
+
+<label>Duration :</label>
+<span th:object="${flight}" th:text="*{flightDuration}"></span>
+
+<label>Distance :</label>
+<span th:object="${flight}" th:text="*{flightDistance}"></span>
+
+<label>Flight Number :</label>
+<span th:object="${flight}" th:text="*{flightNumber}"></span>
 
 
 <div class="buttondiv">

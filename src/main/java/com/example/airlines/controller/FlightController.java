@@ -8,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.time.Duration;
-
 @Controller
 public class FlightController {
 
@@ -33,7 +31,7 @@ public class FlightController {
 
     @PostMapping("/flight_status")
     public String checkFlightStatus(@ModelAttribute("flight") FlightDTO flightDTO, Model model) {
-        Flight flight = flightService.getFlightByFlightNumber(flightDTO.getFlightNumber());
+        Flight flight = flightService.getFlightByFlightNumberAndDepartureDate(flightDTO.getFlightNumber(), flightDTO.getDepartureDate());
         model.addAttribute("flight", flight);
         return "flight_status";
     }

@@ -34,22 +34,28 @@ public class FlightServiceTest {
 
     @Test
     void find_flight_by_from_destination_departure_arrival() {
+        //given
         Flight flight = new Flight();
+        //when
         flight.setFrom("London");
         flight.setDestination("Miami");
         flight.setDepartureDate(LocalDate.of(2021,11,22));
         flight.setReturnDate(LocalDate.of(2021,11,27));
+        //then
         when(flightService.getFlightByProperties(from,destination,flightClass,departureDate,returnDate)).thenReturn(flight);
 
     }
 
     @Test
     void should_throw_exception_when_flight_is_not_present() {
+        //given
         Flight flight = new Flight();
+        //when
         flight.setFrom("London");
         flight.setDestination("Warsaw");
         flight.setDepartureDate(LocalDate.of(2021,11,22));
         flight.setReturnDate(LocalDate.of(2021,11,27));
+        //then
         when(flightService.getFlightByProperties(from,destination,flightClass,departureDate,returnDate)).thenThrow(new NoSuchElementException("Flight doesn't exist"));
     }
 }
