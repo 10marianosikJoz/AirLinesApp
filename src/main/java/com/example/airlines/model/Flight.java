@@ -51,6 +51,13 @@ public class Flight {
     private Set<Ticket> tickets;
 
 
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "plane_id"
+    )
+    private Plane plane;
+
+
     public Flight() {
     }
 
@@ -182,5 +189,13 @@ public class Flight {
 
     public void setFlightStatus(String flightStatus) {
         this.flightStatus = flightStatus;
+    }
+
+    public void setPlane(Plane plane) {
+        this.plane = plane;
+    }
+
+    public Plane getPlane() {
+        return plane;
     }
 }

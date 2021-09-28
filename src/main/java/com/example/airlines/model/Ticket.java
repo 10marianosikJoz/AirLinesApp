@@ -46,6 +46,11 @@ public class Ticket {
     )
     private Flight flight;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "reservation_id"
+    )
+    private Reservation reservation;
     public Ticket() {
     }
 
@@ -167,5 +172,13 @@ public class Ticket {
 
     public void setArrivalTerminal(String arrivalTerminal) {
         this.arrivalTerminal = arrivalTerminal;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
+
+    public Reservation getReservation() {
+        return reservation;
     }
 }

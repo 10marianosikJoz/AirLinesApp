@@ -37,6 +37,9 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private Set<Ticket> tickets;
 
+    @OneToMany(mappedBy = "userReservation", fetch = FetchType.LAZY)
+    private Set<Reservation> reservations;
+
     public User() {
     }
 
@@ -129,5 +132,13 @@ public class User {
 
     public void setResetPasswordToken(String resetPasswordToken) {
         this.resetPasswordToken = resetPasswordToken;
+    }
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public Set<Reservation> getReservations() {
+        return reservations;
     }
 }
