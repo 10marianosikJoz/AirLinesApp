@@ -3,39 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/flight_status_page.css">
+    <link rel="stylesheet" href="/css/flight_status_page_navbar.css">
 </head>
 <body>
-<label>From:</label>
-<span th:object="${flight}" th:text="*{from}"></span>
+<div th:include="flight_status_page_navbar"></div>
+<div class="main_content">
 
-<label>Destination:</label>
-<span th:object="${flight}" th:text="*{destination}"></span>
-
-<label>Flight class:</label>
-<span  th:object="${flight}" th:text="*{flightClass}"></span>
-
-
-<label>Departure date:</label>
-<span th:object="${flight}" th:text="*{departureDate}"></span>
-
-<label>Return date:</label>
-<span th:object="${flight}" th:text="*{returnDate}"></span>
-
-<label>Duration :</label>
-<span th:object="${flight}" th:text="*{flightDuration}"></span>
-
-<label>Distance :</label>
-<span th:object="${flight}" th:text="*{flightDistance}"></span>
-
-<label>Flight Number :</label>
-<span th:object="${flight}" th:text="*{flightNumber}"></span>
+    <div class="main_info">
+        <div class="flight_route_label">
+    <span class="flight_no_route">
+        Flight number and route
+    </span>
+        </div>
+    <div class="flight_no_and_route_info">
+        <br>
+        <label class="flight_no_and_route">
+            <span>TK</span>
+            <span th:object="${flight}" th:text="*{flightNumber}"></span>
+            <span>|</span>
+            <span th:object="${flight}" th:text="*{from}"></span>
+            <span>to</span>
+            <span th:object="${flight}" th:text="*{destination}"></span>
+            <span>|</span>
+            <span th:object="${flight}" th:text="*{departureDate}"></span>
+        </label>
+    </div>
 
 
-<div class="buttondiv">
-    <button class="btn btn-primary" type="submit">Save</button>
-    <a href="/">
-        <button class="btn btn-primary" type="button">Cancel</button>
-    </a>
+    <div class="flight_status_info">
+        <label class="flight_status_label">Flight status</label>
+        <span class="flight_status" th:object="${flight}" th:text="*{flightStatus}"></span>
+    </div>
+    </div>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="duration_line">
+            <span class="duration_time" th:object="${flight}" th:text="*{flightDuration} +' h'"></span>
+            <hr size="15" width="450px" color="red">
+        </div>
+
+
+        <div class="estimated_flight_duration">
+            <span class="estimated_departure" th:object="${flight}"
+                  th:text="'Estimated for ' + *{departureTime}"></span>
+            <span class="estimated_arrival" th:object="${flight}" th:text="'Estimated for ' + *{arrivalTime}"></span>
+        </div>
+
+    </div>
+    <table class="table table-bordered">
+        <thead>
+        <tr class="table_menu">
+            <th scope="col">FLIGHT</th>
+            <th scope="col">DEPARTURE</th>
+            <th scope="col">ARRIVAL</th>
+            <th scope="col">DURATION</th>
+            <th scope="col">DISTANCE</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="height: 170px;">
+
+
+            <td><span class="tk_number" th:object="${flight}" th:text="'TK ' + *{flightNumber}"></span>
+                <span class="tk_description">Operated by USA Airlines</span><img src="/images/plane_miniature.png"
+                                                                                 width="130px" height="130px"></td>
+
+            <td>
+                <span class="departure_time" th:object="${flight}" th:text="*{departureTime}"></span>
+                <span class="scheduled_departure" th:object="${flight}"
+                      th:text="'Scheduled for: ' + *{departureTime}"></span>
+                <span class="from" th:object="${flight}" th:text="*{from} + ', kraj'"></span>
+                <span class="take_off_airport" th:object="${ticket}" th:text="*{takeOffAirPort}"></span>
+                <span class="departure_terminal" th:object="${ticket}"
+                      th:text="'TERMINAL ' + *{departureTerminal}"></span>
+                <span class="gate_number" th:object="${ticket}" th:text="'Gate no. ' + *{gate}"></span>
+                <img class="warning" src="/images/warning.png"
+                     width="15px" height="15px">
+                <span class="attention">You can find your current gate number on the screens in terminal</span>
+            </td>
+            <td>
+                <span class="arrival_time" th:object="${flight}" th:text="*{arrivalTime}"></span>
+                <span class="scheduled_arrival" th:object="${flight}"
+                      th:text="'Scheduled for: ' + *{arrivalTime}"></span>
+                <span class="destination" th:object="${flight}" th:text="*{destination} + ', kraj'"></span>
+                <span class="final_airport" th:object="${ticket}" th:text="*{finalAirPort}"></span>
+                <span class="arrival_terminal" th:object="${ticket}" th:text="'TERMINAL ' + *{arrivalTerminal}"></span>
+
+            </td>
+            <td class="duration" th:object="${flight}" th:text="*{flightDuration} + ' h'"></td>
+            <td class="distance" th:object="${flight}" th:text="*{flightDistance} + ' km'"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="buttondiv">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a href="/">
+            <button class="btn btn-primary" type="button">Cancel</button>
+        </a>
+    </div>
 </div>
 </body>
 </html>

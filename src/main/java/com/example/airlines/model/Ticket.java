@@ -18,27 +18,59 @@ public class Ticket {
             generator = "ticket_sequence"
     )
     private Long id;
+    @Column(name = "ticket_number")
     private String ticketNumber;
     private BigDecimal price;
     private String seat;
     private String gate;
+    @Column(name = "baggage_weight")
     private double baggageWeight;
-    private String terminal;
+    @Column(name = "departure_terminal")
+    private String departureTerminal;
+    @Column(name = "arrival_terminal")
+    private String arrivalTerminal;
+    @Column(name = "take_off_airport")
+    private String takeOffAirPort;
+    @Column(name = "final_airport")
+    private String finalAirPort;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(
-            name = "ticket_id"
+            name = "user_id"
     )
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(
             name = "flight_id"
     )
     private Flight flight;
 
-
     public Ticket() {
+    }
+
+    public Ticket(String ticketNumber,
+                  BigDecimal price,
+                  String seat,
+                  String gate,
+                  double baggageWeight,
+                  String departureTerminal,
+                  String arrivalTerminal,
+                  String takeOffAirPort,
+                  String finalAirPort,
+                  Flight flight
+    ) {
+        this.ticketNumber = ticketNumber;
+        this.price = price;
+        this.seat = seat;
+        this.gate = gate;
+        this.baggageWeight = baggageWeight;
+        this.departureTerminal = departureTerminal;
+        this.arrivalTerminal = arrivalTerminal;
+        this.takeOffAirPort = takeOffAirPort;
+        this.finalAirPort = finalAirPort;
+        this.flight = flight;
+
     }
 
     public Long getId() {
@@ -105,11 +137,35 @@ public class Ticket {
         this.flight = flight;
     }
 
-    public String getTerminal() {
-        return terminal;
+    public String getDepartureTerminal() {
+        return departureTerminal;
     }
 
-    public void setTerminal(String terminal) {
-        this.terminal = terminal;
+    public void setDepartureTerminal(String departureTerminal) {
+        this.departureTerminal = departureTerminal;
+    }
+
+    public String getTakeOffAirPort() {
+        return takeOffAirPort;
+    }
+
+    public void setTakeOffAirPort(String takeOffAirPort) {
+        this.takeOffAirPort = takeOffAirPort;
+    }
+
+    public String getFinalAirPort() {
+        return finalAirPort;
+    }
+
+    public void setFinalAirPort(String finalAirPort) {
+        this.finalAirPort = finalAirPort;
+    }
+
+    public String getArrivalTerminal() {
+        return arrivalTerminal;
+    }
+
+    public void setArrivalTerminal(String arrivalTerminal) {
+        this.arrivalTerminal = arrivalTerminal;
     }
 }

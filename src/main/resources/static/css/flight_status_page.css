@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+.main_content span, b {
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+ .flight_no_route {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+}
+.flight_no_and_route_info span{
+    font-size: 30px;
+    font-family: 'Oswald', sans-serif;
+}
+.flight_status_info label {
+    font-weight: bold;
+}
+.main_content .flight_status {
+    font-size: 22px;
+    color: cornflowerblue;
+    font-family: 'Oswald', sans-serif;
+}
+
+.main_content .table-bordered {
+    width: 1200px;
+    margin: 70px auto auto;
+    border: 1px solid #797F7B;
+}
+.main_info {
+    text-align: center;
+    margin: 50px auto auto;
+}
+.table-bordered .table_menu {
+    background-color: #797F7B;
+    color: white;
+    font-weight: bold;
+}
+
+.table-bordered .tk_number {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+}
+
+.table-bordered .departure_time {
+    font-weight: bold;
+    font-size: 18px;
+    color: cornflowerblue;
+    display: flex;
+}
+
+.table-bordered .from {
+    display: flex;
+}
+
+.table-bordered .arrival_time {
+    font-weight: bold;
+    font-size: 18px;
+    color: cornflowerblue;
+}
+
+.table-bordered .duration {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.table-bordered .distance {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.table-bordered .tk_description {
+    font-size: 17px;
+    font-weight: bold;
+    color: #767676;
+    display: flex;
+}
+
+.table-bordered .scheduled_departure {
+    font-size: 16px;
+    font-weight: lighter;
+}
+.table-bordered .scheduled_arrival{
+    font-size: 16px;
+    font-weight: lighter;
+    display: flex;
+}
+
+.table-bordered .from {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.table-bordered .destination {
+    font-weight: bold;
+    margin-top: 10px;
+    display: flex;
+}
+
+.table-bordered .take_off_airport {
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.table-bordered .final_airport {
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.table-bordered .departure_terminal {
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+}
+
+.table-bordered .arrival_terminal {
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+
+}
+.table-bordered .gate_number {
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+}
+.table-bordered .attention {
+    font-size: 15px;
+    font-weight: bold;
+}
+.table-bordered .warning {
+    margin-top: -2px;
+}
+.rounded {
+    width: 1200px;
+    height: 150px;
+    margin: 200px auto auto;
+}
+
+.rounded span {
+    font-weight: bold;
+}
+
+.rounded .estimated_departure {
+    margin: 48px 100px;
+}
+
+.rounded .estimated_arrival {
+    margin-left: 560px;
+}
+
+.estimated_flight_duration {
+    margin-top: -80px;
+}
+
+.duration_line {
+    margin-left: 350px;
+}
+
+.duration_line .duration_time {
+    margin-left: 200px;
+}

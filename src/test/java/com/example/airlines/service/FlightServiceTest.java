@@ -25,6 +25,7 @@ public class FlightServiceTest {
     @MockBean
     FlightService flightService;
 
+
     private final String from = "London";
     private final String destination = "Miami";
     private final String flightClass = "Bus";
@@ -42,7 +43,7 @@ public class FlightServiceTest {
         flight.setDepartureDate(LocalDate.of(2021,11,22));
         flight.setReturnDate(LocalDate.of(2021,11,27));
         //then
-        when(flightService.getFlightByProperties(from,destination,flightClass,departureDate,returnDate)).thenReturn(flight);
+        when(flightService.findFlightByBasicData(from,destination,flightClass,departureDate,returnDate)).thenReturn(flight);
 
     }
 
@@ -56,6 +57,6 @@ public class FlightServiceTest {
         flight.setDepartureDate(LocalDate.of(2021,11,22));
         flight.setReturnDate(LocalDate.of(2021,11,27));
         //then
-        when(flightService.getFlightByProperties(from,destination,flightClass,departureDate,returnDate)).thenThrow(new NoSuchElementException("Flight doesn't exist"));
+        when(flightService.findFlightByBasicData(from,destination,flightClass,departureDate,returnDate)).thenThrow(new NoSuchElementException("Flight doesn't exist"));
     }
 }

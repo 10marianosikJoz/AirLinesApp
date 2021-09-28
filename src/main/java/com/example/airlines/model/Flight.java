@@ -44,6 +44,8 @@ public class Flight {
     @Column(name = "flight_duration")
     @DateTimeFormat(pattern = "HH:mm")
     private Duration flightDuration;
+    @Column(name = "flight_status")
+    private String flightStatus;
 
     @OneToMany(mappedBy = "flight")
     private Set<Ticket> tickets;
@@ -62,7 +64,8 @@ public class Flight {
             LocalTime arrivalTime,
             String flightNumber,
             int flightDistance,
-            Duration flightDuration) {
+            Duration flightDuration,
+            String flightStatus) {
         this.from = from;
         this.destination = destination;
         this.flightClass = flightClass;
@@ -73,6 +76,7 @@ public class Flight {
         this.flightNumber = flightNumber;
         this.flightDistance = flightDistance;
         this.flightDuration = flightDuration;
+        this.flightStatus = flightStatus;
     }
 
     public Long getId() {
@@ -170,5 +174,13 @@ public class Flight {
 
     public void setFlightDuration(Duration flightDuration) {
         this.flightDuration = flightDuration;
+    }
+
+    public String getFlightStatus() {
+        return flightStatus;
+    }
+
+    public void setFlightStatus(String flightStatus) {
+        this.flightStatus = flightStatus;
     }
 }

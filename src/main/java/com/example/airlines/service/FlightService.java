@@ -17,7 +17,7 @@ public class FlightService {
     }
 
 
-    public Flight getFlightByProperties(String from,
+    public Flight findFlightByBasicData(String from,
                                         String destination,
                                         String flightClass,
                                         LocalDate departureDate,
