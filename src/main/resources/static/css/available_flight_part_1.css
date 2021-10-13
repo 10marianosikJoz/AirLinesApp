@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+.container {
+    border:2px solid #C6C8C4;
+    height: 700px;
+    width: 1200px;
+    margin-top: 250px;
+    background-color: #FAFBF9;
+}

@@ -29,7 +29,9 @@ public class FlightController {
                 flightDTO.getFlightClass(),
                 flightDTO.getDepartureDate(),
                 flightDTO.getReturnDate());
+        Ticket ticket = ticketService.findTicketByFlight(flight);
         model.addAttribute("flight", flight);
+        model.addAttribute("ticket", ticket);
         return "available_flights";
     }
 
